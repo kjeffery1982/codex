@@ -1,0 +1,41 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="600" y1="0" x2="600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2ACFE3"/>
+      <stop offset="1" stop-color="#12B5D4"/>
+    </linearGradient>
+    <filter id="flowerShadow" x="180" y="120" width="860" height="700" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="22"/>
+      <feGaussianBlur stdDeviation="18"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.02 0 0 0 0 0.3 0 0 0 0 0.37 0 0 0 0.35 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_1" result="shape"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <circle cx="188" cy="146" r="108" fill="white" fill-opacity="0.08"/>
+  <circle cx="1022" cy="760" r="126" fill="white" fill-opacity="0.07"/>
+  <ellipse cx="600" cy="676" rx="230" ry="44" fill="#0C839B" fill-opacity="0.24"/>
+
+  <g filter="url(#flowerShadow)">
+    <path d="M600 228L702 360L600 454L499 360L600 228Z" fill="#FFA6CA"/>
+    <path d="M600 228L635 356L600 390L565 356L600 228Z" fill="#FFC2DA"/>
+
+    <path d="M600 454L702 360L810 454L704 546L600 454Z" fill="#F7A056"/>
+    <path d="M600 454L704 546L600 638L496 546L600 454Z" fill="#FFE86A"/>
+    <path d="M600 454L496 546L390 454L499 360L600 454Z" fill="#8EDB73"/>
+    <path d="M600 454L390 454L287 547L392 638L600 454Z" fill="#65C8F6"/>
+    <path d="M600 454L810 454L913 547L808 638L600 454Z" fill="#8FCD7A"/>
+
+    <path d="M600 454L650 410L600 390L550 410L600 454Z" fill="#B05586"/>
+    <circle cx="600" cy="454" r="20" fill="#943769"/>
+
+    <path d="M602 454L705 362" stroke="#F6D2E4" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+    <path d="M598 454L495 362" stroke="#F6D2E4" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+    <path d="M600 458L704 546" stroke="#EFD5A9" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+    <path d="M600 458L496 546" stroke="#EFD5A9" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+  </g>
+</svg>

@@ -1,0 +1,53 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="176" y1="124" x2="838" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF8EF"/>
+      <stop offset="0.55" stop-color="#FFEBD9"/>
+      <stop offset="1" stop-color="#FDE3EC"/>
+    </linearGradient>
+    <linearGradient id="star" x1="333" y1="284" x2="624" y2="547" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#81C8EE"/>
+      <stop offset="0.58" stop-color="#F29AB8"/>
+      <stop offset="1" stop-color="#F2CB76"/>
+    </linearGradient>
+    <linearGradient id="lily" x1="564" y1="356" x2="751" y2="617" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF4F8"/>
+      <stop offset="0.52" stop-color="#F5A4BF"/>
+      <stop offset="1" stop-color="#F5C58C"/>
+    </linearGradient>
+    <linearGradient id="bracelet" x1="267" y1="579" x2="623" y2="732" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F06AA3"/>
+      <stop offset="0.34" stop-color="#F4C64F"/>
+      <stop offset="0.67" stop-color="#7CD09D"/>
+      <stop offset="1" stop-color="#78C7F2"/>
+    </linearGradient>
+    <filter id="shadow" x="178" y="188" width="660" height="620" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="18"/>
+      <feGaussianBlur stdDeviation="24"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.541176 0 0 0 0 0.403922 0 0 0 0 0.47451 0 0 0 0.18 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_1" result="shape"/>
+    </filter>
+  </defs>
+
+  <rect x="72" y="72" width="880" height="880" rx="248" fill="url(#bg)"/>
+  <circle cx="798" cy="252" r="54" fill="#FFFDF8" fill-opacity="0.72"/>
+  <circle cx="246" cy="814" r="42" fill="#FFFDF8" fill-opacity="0.6"/>
+  <circle cx="854" cy="764" r="28" fill="#FFFDF8" fill-opacity="0.52"/>
+
+  <g filter="url(#shadow)">
+    <path d="M495.224 231L549.177 374.911L702.5 382.436L580.904 476.133L622.033 624.5L495.224 537.547L368.415 624.5L409.544 476.133L287.948 382.436L441.271 374.911L495.224 231Z" fill="url(#star)"/>
+
+    <path d="M691.329 315C729.594 370.47 746.577 400.84 746.577 431.713C746.577 466.112 724.451 491.781 677.666 499.828C706.992 522.614 718.215 550.073 705.487 582.554C693.235 613.82 666.255 629.5 626.877 629.5C625.87 629.5 624.856 629.49 623.834 629.468C622.813 629.49 621.799 629.5 620.791 629.5C581.414 629.5 554.433 613.82 542.181 582.554C529.454 550.073 540.676 522.614 570.002 499.828C523.217 491.781 501.091 466.112 501.091 431.713C501.091 400.84 518.074 370.47 556.339 315L623.834 396.066L691.329 315Z" fill="url(#lily)"/>
+
+    <path d="M277 668C277 587.366 342.366 522 423 522C503.634 522 569 587.366 569 668C569 748.634 503.634 814 423 814C342.366 814 277 748.634 277 668Z" stroke="url(#bracelet)" stroke-width="36" stroke-linecap="round" stroke-dasharray="22 24"/>
+
+    <path d="M597 619C641.835 619 678.179 655.344 678.179 700.179C678.179 745.015 641.835 781.359 597 781.359C552.164 781.359 515.82 745.015 515.82 700.179C515.82 655.344 552.164 619 597 619Z" stroke="#F2C84B" stroke-width="18" stroke-dasharray="2 22" stroke-linecap="round"/>
+    <path d="M597 729L635.697 671.5H558.303L597 729Z" fill="url(#star)"/>
+  </g>
+
+  <rect x="186" y="790" width="652" height="96" rx="48" fill="#FFFDF8" fill-opacity="0.78"/>
+  <text x="512" y="846" text-anchor="middle" font-family="Baloo 2, Trebuchet MS, sans-serif" font-size="58" font-weight="700" fill="#7D5470">Kid's Arts and Crafts</text>
+</svg>

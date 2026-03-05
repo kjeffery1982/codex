@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kid's Arts and Crafts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-bg" aria-hidden="true">
+      <div class="paper-cluster paper-left">
+        <span class="origami-crane"></span>
+        <span class="origami-diamond"></span>
+      </div>
+      <div class="paper-cluster paper-right">
+        <span class="origami-fan"></span>
+        <span class="origami-star"></span>
+      </div>
+      <div class="jewelry-cluster jewelry-top">
+        <span class="bead-ring"></span>
+        <span class="bead-string"></span>
+      </div>
+      <div class="jewelry-cluster jewelry-bottom">
+        <span class="gem-drop"></span>
+        <span class="chain-link"></span>
+      </div>
+    </div>
+
+    <div class="shell">
+      <header class="topbar">
+        <div class="brand-block">
+          <img
+            class="brand-logo"
+            src="./logo-kids-arts-and-crafts.svg"
+            alt="Kid's Arts and Crafts logo"
+            width="92"
+            height="92"
+          />
+          <p class="eyebrow">5th Grade Makers Market</p>
+          <div class="brand-row">
+            <h1>Kid's Arts and Crafts</h1>
+            <span class="badge">Origami + Jewelry</span>
+          </div>
+        </div>
+        <a class="shop-link" href="#shop">Shop Handmade Creations</a>
+      </header>
+
+      <main class="page">
+        <section class="hero panel">
+          <div class="hero-copy">
+            <p class="eyebrow">Colorful handmade gifts</p>
+            <h2>Paper folds, bead sparkles, and bright ideas made by 5th graders.</h2>
+            <p class="hero-text">
+              This cheerful classroom shop features paper stars, folded gift boxes, paper lilies, friendship
+              bracelets, and playful necklaces. Each item now includes cozy storybook-inspired examples and a
+              little anecdote from Briar's craft table.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#shop">See Products</a>
+              <a class="button secondary" href="#story">How It's Made</a>
+            </div>
+            <div class="hero-stats">
+              <div class="stat">
+                <strong>5</strong>
+                <span>sample products</span>
+              </div>
+              <div class="stat">
+                <strong>2</strong>
+                <span>creative categories</span>
+              </div>
+              <div class="stat">
+                <strong>Buy</strong>
+                <span>buttons included</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-art">
+            <div class="display-card">
+              <div class="mini-scene">
+                <div class="mini-origami"></div>
+                <div class="mini-necklace"></div>
+                <div class="mini-bracelet"></div>
+              </div>
+              <p>Background art mixes folded-paper shapes with colorful jewelry details.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="category-strip">
+          <article class="category-card">
+            <div class="category-icon origami-icon"></div>
+            <div>
+              <p class="eyebrow">Origami Collection</p>
+              <h3>Paper stars, gift boxes, and lilies folded with bright colors and careful classroom creases.</h3>
+            </div>
+          </article>
+          <article class="category-card">
+            <div class="category-icon jewelry-icon"></div>
+            <div>
+              <p class="eyebrow">Jewelry Collection</p>
+              <h3>Friendship bracelets and necklaces made with beads, string, and colorful kid-made patterns.</h3>
+            </div>
+          </article>
+        </section>
+
+        <section id="shop" class="products-section">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Shop the table</p>
+              <h2>Featured student-made products</h2>
+            </div>
+            <p class="section-note">Add items to cart, customize necklace text, then complete one combined checkout.</p>
+          </div>
+
+          <div class="product-grid">
+            <article class="product-card panel">
+              <div class="product-art">
+                <img class="product-photo" src="./paper-star.svg" alt="Finished paper star on a tabletop" />
+              </div>
+              <div class="product-copy">
+                <div class="product-meta">
+                  <span class="tag">Origami</span>
+                  <span class="price">$3</span>
+                </div>
+                <h3>Paper Star</h3>
+                <p>Folded by 5th graders using bright classroom paper to make a cheerful five-point star.</p>
+                <p class="anecdote">Anecdote: Briar said the gold star looked like the kind of wish you make right before a school fair starts.</p>
+                <div class="examples">
+                  <span class="example-chip">Sunrise star</span>
+                  <span class="example-chip">Moonlit star</span>
+                  <span class="example-chip">Honey star</span>
+                </div>
+                <button class="buy-button" data-product="Paper Star" data-price="$3" data-customizable="false">Add to Cart</button>
+              </div>
+            </article>
+
+            <article class="product-card panel">
+              <div class="product-art">
+                <img class="product-photo" src="./paper-gift-box.svg" alt="Finished paper gift box on a tabletop" />
+              </div>
+              <div class="product-copy">
+                <div class="product-meta">
+                  <span class="tag">Origami</span>
+                  <span class="price">$4</span>
+                </div>
+                <h3>Paper Gift Box</h3>
+                <p>A folded paper gift box made by 5th graders with crisp corners and a fun pattern on every side.</p>
+                <p class="anecdote">Anecdote: One box was so tiny and neat that Briar's friends hid a lucky marble inside and called it a treasure chest.</p>
+                <div class="examples">
+                  <span class="example-chip">Berry box</span>
+                  <span class="example-chip">Moss box</span>
+                  <span class="example-chip">Sky box</span>
+                </div>
+                <button class="buy-button" data-product="Paper Gift Box" data-price="$4" data-customizable="false">Add to Cart</button>
+              </div>
+            </article>
+
+            <article class="product-card panel">
+              <div class="product-art">
+                <img class="product-photo" src="./paper-lily.svg" alt="Finished paper lily on a tabletop" />
+              </div>
+              <div class="product-copy">
+                <div class="product-meta">
+                  <span class="tag">Origami</span>
+                  <span class="price">$4</span>
+                </div>
+                <h3>Paper Lilly</h3>
+                <p>A folded paper lily made by 5th grade students with pastel petals and a carefully shaped center.</p>
+                <p class="anecdote">Anecdote: Briar made the first lily during recess and everyone gathered around to see the petals open like magic.</p>
+                <div class="examples">
+                  <span class="example-chip">Blush lily</span>
+                  <span class="example-chip">Cream lily</span>
+                  <span class="example-chip">Lavender lily</span>
+                </div>
+                <button class="buy-button" data-product="Paper Lilly" data-price="$4" data-customizable="false">Add to Cart</button>
+              </div>
+            </article>
+
+            <article class="product-card panel">
+              <div class="product-art">
+                <img class="product-photo" src="./friendship-bracelet.svg" alt="Finished friendship bracelet on a dark tabletop" />
+              </div>
+              <div class="product-copy">
+                <div class="product-meta">
+                  <span class="tag">Jewelry</span>
+                  <span class="price">$5</span>
+                </div>
+                <h3>Friendship Bracelet</h3>
+                <p>Hand-woven with colorful string, made by 5th graders with love and careful little knots for best friends.</p>
+                <p class="anecdote">Anecdote: Briar's group tied the first bracelet while sharing snack crackers and promising to wear matching colors on market day.</p>
+                <div class="examples">
+                  <span class="example-chip">Rose braid</span>
+                  <span class="example-chip">River braid</span>
+                  <span class="example-chip">Sunset braid</span>
+                </div>
+                <button class="buy-button" data-product="Friendship Bracelet" data-price="$5" data-customizable="false">Add to Cart</button>
+              </div>
+            </article>
+
+            <article class="product-card panel">
+              <div class="product-art">
+                <img class="product-photo" src="./necklace.svg" alt="Finished necklace on a dark tabletop" />
+              </div>
+              <div class="product-copy">
+                <div class="product-meta">
+                  <span class="tag">Jewelry</span>
+                  <span class="price">$6</span>
+                </div>
+                <h3>Necklace</h3>
+                <p>A colorful necklace assembled by 5th grade makers with bright beads and a playful centerpiece.</p>
+                <p class="anecdote">Anecdote: One necklace shimmered so much in the classroom window that Briar's friends said it looked ready for a tiny forest festival.</p>
+                <div class="examples">
+                  <span class="example-chip">Acorn necklace</span>
+                  <span class="example-chip">Cloud necklace</span>
+                  <span class="example-chip">Meadow necklace</span>
+                </div>
+                <button class="buy-button" data-product="Necklace" data-price="$6" data-customizable="true">Add to Cart</button>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="checkout" class="checkout-grid">
+          <article class="story-card panel checkout-card">
+            <p class="eyebrow">Checkout</p>
+            <h2>Review cart and place order</h2>
+            <div id="cart-empty" class="cart-empty">Your cart is empty. Add products from above.</div>
+            <div id="cart-items" class="cart-items" aria-live="polite"></div>
+            <div class="cart-summary">
+              <span>Order total</span>
+              <strong id="order-total">$0</strong>
+            </div>
+            <form id="purchase-form" class="purchase-form">
+              <label>
+                Customer name
+                <input id="customer-name" name="customerName" type="text" placeholder="Taylor" required />
+              </label>
+              <label>
+                Customer email
+                <input id="customer-email" name="customerEmail" type="email" placeholder="taylor@example.com" required />
+              </label>
+              <fieldset class="payment-fieldset">
+                <legend>Payment details</legend>
+                <label>
+                  Card number
+                  <input
+                    id="card-number"
+                    name="cardNumber"
+                    type="text"
+                    inputmode="numeric"
+                    autocomplete="cc-number"
+                    placeholder="4242 4242 4242 4242"
+                    required
+                  />
+                </label>
+                <div class="payment-row">
+                  <label>
+                    Expiry (MM/YY)
+                    <input
+                      id="card-expiry"
+                      name="cardExpiry"
+                      type="text"
+                      inputmode="numeric"
+                      autocomplete="cc-exp"
+                      placeholder="08/29"
+                      maxlength="5"
+                      required
+                    />
+                  </label>
+                  <label>
+                    CVC
+                    <input
+                      id="card-cvc"
+                      name="cardCvc"
+                      type="text"
+                      inputmode="numeric"
+                      autocomplete="cc-csc"
+                      placeholder="123"
+                      maxlength="4"
+                      required
+                    />
+                  </label>
+                </div>
+              </fieldset>
+              <button id="checkout-button" class="button primary submit-button" type="submit">Complete Order</button>
+            </form>
+          </article>
+
+          <article class="story-card panel notification-card">
+            <p class="eyebrow">Order status</p>
+            <h2>Purchase updates</h2>
+            <p id="purchase-status">
+              Add items to cart and complete checkout when you are ready.
+            </p>
+            <p class="integration-note">
+              Purchases post to the app's `/api/orders` endpoint. The server sends Slack notifications to
+              `#codex-kids-arts-crafts` using `SLACK_BOT_TOKEN` and `SLACK_CHANNEL` (or `SLACK_WEBHOOK_URL` fallback).
+            </p>
+          </article>
+        </section>
+
+        <section id="story" class="story-grid">
+          <article class="story-card panel">
+            <p class="eyebrow">How It's Made</p>
+            <h2>Briar and her group of creative entrepreneurial friends make every piece together.</h2>
+            <p>
+              Briar, B-R-I-A-R, sketches the first ideas, then her friends fold, weave, sort colors, and test each
+              design until it feels special enough for the shop table. They treat every item like a tiny handmade gift.
+            </p>
+          </article>
+          <article class="story-card panel">
+            <p class="eyebrow">Studio Mood</p>
+            <ul class="feature-list">
+              <li>Soft storybook-inspired examples for every craft</li>
+              <li>Origami paper stars, gift boxes, and lilies</li>
+              <li>Hand-woven friendship bracelets and bright necklaces</li>
+            </ul>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      const purchaseForm = document.getElementById("purchase-form");
+      const customerNameInput = document.getElementById("customer-name");
+      const customerEmailInput = document.getElementById("customer-email");
+      const cardNumberInput = document.getElementById("card-number");
+      const cardExpiryInput = document.getElementById("card-expiry");
+      const cardCvcInput = document.getElementById("card-cvc");
+      const statusEl = document.getElementById("purchase-status");
+      const buyButtons = document.querySelectorAll(".buy-button");
+      const cartItemsEl = document.getElementById("cart-items");
+      const cartEmptyEl = document.getElementById("cart-empty");
+      const orderTotalEl = document.getElementById("order-total");
+      const checkoutButton = document.getElementById("checkout-button");
+
+      const orderEndpoint = "/api/orders";
+      const cart = [];
+
+      function formatDollars(amount) {
+        return `$${amount}`;
+      }
+
+      function parsePrice(priceLabel) {
+        return Number((priceLabel || "").replace("$", "").trim());
+      }
+
+      function normalizeDigits(value) {
+        return String(value || "").replace(/\D/g, "");
+      }
+
+      function formatCardNumber(value) {
+        const digits = normalizeDigits(value).slice(0, 19);
+        return digits.replace(/(.{4})/g, "$1 ").trim();
+      }
+
+      function formatCardExpiry(value) {
+        const digits = normalizeDigits(value).slice(0, 4);
+        if (digits.length <= 2) return digits;
+        return `${digits.slice(0, 2)}/${digits.slice(2)}`;
+      }
+
+      function isValidExpiry(value) {
+        const match = String(value || "").match(/^(\d{2})\/(\d{2})$/);
+        if (!match) return false;
+        const month = Number(match[1]);
+        const yearTwo = Number(match[2]);
+        if (month < 1 || month > 12) return false;
+
+        const now = new Date();
+        const currentYearTwo = now.getFullYear() % 100;
+        const currentMonth = now.getMonth() + 1;
+        if (yearTwo < currentYearTwo) return false;
+        if (yearTwo === currentYearTwo && month < currentMonth) return false;
+        return true;
+      }
+
+      function setSubmitting(isSubmitting) {
+        checkoutButton.disabled = isSubmitting;
+        if (isSubmitting) {
+          checkoutButton.textContent = "Placing Order...";
+        } else {
+          updateCheckoutButton();
+        }
+        purchaseForm.querySelectorAll("input, button").forEach((el) => {
+          if (!(el instanceof HTMLElement)) return;
+          if (el.id === "checkout-button") return;
+          el.toggleAttribute("disabled", isSubmitting);
+        });
+      }
+
+      function getOrderTotal() {
+        return cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      }
+
+      function updateCheckoutButton() {
+        const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+        checkoutButton.disabled = itemCount === 0;
+        checkoutButton.textContent = itemCount > 0 ? `Complete Order (${itemCount} item${itemCount === 1 ? "" : "s"})` : "Complete Order";
+      }
+
+      function renderCart() {
+        cartItemsEl.innerHTML = "";
+
+        if (cart.length === 0) {
+          cartEmptyEl.style.display = "block";
+          orderTotalEl.textContent = "$0";
+          updateCheckoutButton();
+          return;
+        }
+
+        cartEmptyEl.style.display = "none";
+
+        cart.forEach((item, index) => {
+          const row = document.createElement("div");
+          row.className = "cart-row";
+
+          const title = document.createElement("div");
+          title.className = "cart-title";
+          title.textContent = item.product;
+
+          const linePrice = document.createElement("div");
+          linePrice.className = "cart-line-price";
+          linePrice.textContent = `${formatDollars(item.price)} each`;
+
+          const controls = document.createElement("div");
+          controls.className = "cart-controls";
+          controls.innerHTML = `
+            <button type="button" class="qty-btn" data-action="decrease" data-index="${index}" aria-label="Decrease quantity">-</button>
+            <span class="qty-value">${item.quantity}</span>
+            <button type="button" class="qty-btn" data-action="increase" data-index="${index}" aria-label="Increase quantity">+</button>
+            <button type="button" class="remove-btn" data-action="remove" data-index="${index}">Remove</button>
+          `;
+
+          row.appendChild(title);
+          row.appendChild(linePrice);
+          row.appendChild(controls);
+
+          if (item.customizable) {
+            const customWrap = document.createElement("label");
+            customWrap.className = "customize-wrap";
+            customWrap.textContent = "Necklace text (1-25 characters)";
+
+            const customInput = document.createElement("input");
+            customInput.type = "text";
+            customInput.minLength = 1;
+            customInput.maxLength = 25;
+            customInput.required = true;
+            customInput.placeholder = "ex: Briar Squad";
+            customInput.value = item.customText || "";
+            customInput.dataset.index = String(index);
+            customInput.className = "customize-input";
+            customWrap.appendChild(customInput);
+            row.appendChild(customWrap);
+          }
+
+          cartItemsEl.appendChild(row);
+        });
+
+        orderTotalEl.textContent = formatDollars(getOrderTotal());
+        updateCheckoutButton();
+      }
+
+      function addToCart({ product, price, customizable }) {
+        if (customizable) {
+          cart.push({ product, price, quantity: 1, customizable: true, customText: "" });
+          statusEl.textContent = `${product} added to cart. Add custom text in checkout before placing order.`;
+        } else {
+          const existing = cart.find((item) => item.product === product && !item.customizable);
+          if (existing) {
+            existing.quantity += 1;
+          } else {
+            cart.push({ product, price, quantity: 1, customizable: false, customText: "" });
+          }
+          statusEl.textContent = `${product} added to cart.`;
+        }
+
+        renderCart();
+      }
+
+      buyButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          addToCart({
+            product: button.dataset.product || "",
+            price: parsePrice(button.dataset.price || "$0"),
+            customizable: button.dataset.customizable === "true"
+          });
+          document.getElementById("checkout").scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+
+      cartItemsEl.addEventListener("click", (event) => {
+        const target = event.target;
+        if (!(target instanceof HTMLElement)) return;
+        const action = target.dataset.action;
+        const index = Number(target.dataset.index);
+        if (!action || Number.isNaN(index) || !cart[index]) return;
+
+        if (action === "increase") {
+          cart[index].quantity += 1;
+        } else if (action === "decrease") {
+          cart[index].quantity = Math.max(1, cart[index].quantity - 1);
+        } else if (action === "remove") {
+          cart.splice(index, 1);
+        }
+
+        renderCart();
+      });
+
+      cartItemsEl.addEventListener("input", (event) => {
+        const target = event.target;
+        if (!(target instanceof HTMLInputElement) || !target.classList.contains("customize-input")) return;
+        const index = Number(target.dataset.index);
+        if (Number.isNaN(index) || !cart[index]) return;
+        cart[index].customText = target.value;
+      });
+
+      cardNumberInput.addEventListener("input", () => {
+        cardNumberInput.value = formatCardNumber(cardNumberInput.value);
+      });
+
+      cardExpiryInput.addEventListener("input", () => {
+        cardExpiryInput.value = formatCardExpiry(cardExpiryInput.value);
+      });
+
+      cardCvcInput.addEventListener("input", () => {
+        cardCvcInput.value = normalizeDigits(cardCvcInput.value).slice(0, 4);
+      });
+
+      async function sendSlackNotification(order) {
+        const response = await fetch(orderEndpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(order)
+        });
+
+        return { ok: response.ok };
+      }
+
+      purchaseForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        if (cart.length === 0) {
+          statusEl.textContent = "Add at least one item to your cart before checkout.";
+          return;
+        }
+
+        for (const item of cart) {
+          if (item.customizable) {
+            const text = (item.customText || "").trim();
+            if (text.length < 1 || text.length > 25) {
+              statusEl.textContent = "Each necklace must have custom text between 1 and 25 characters.";
+              return;
+            }
+          }
+        }
+
+        const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+        const cardDigits = normalizeDigits(cardNumberInput.value);
+        const cvcDigits = normalizeDigits(cardCvcInput.value);
+
+        if (cardDigits.length < 13 || cardDigits.length > 19) {
+          statusEl.textContent = "Enter a valid card number.";
+          return;
+        }
+
+        if (!isValidExpiry(cardExpiryInput.value)) {
+          statusEl.textContent = "Enter a valid, non-expired card expiry in MM/YY format.";
+          return;
+        }
+
+        if (cvcDigits.length < 3 || cvcDigits.length > 4) {
+          statusEl.textContent = "Enter a valid CVC.";
+          return;
+        }
+
+        const order = {
+          product: itemCount === 1 ? cart[0].product : `${itemCount} items`,
+          price: formatDollars(getOrderTotal()),
+          customerName: customerNameInput.value,
+          customerEmail: customerEmailInput.value,
+          purchasedAt: new Date().toISOString(),
+          paymentLast4: cardDigits.slice(-4),
+          items: cart.map((item) => ({
+            product: item.product,
+            quantity: item.quantity,
+            unitPrice: item.price,
+            customization: item.customizable ? (item.customText || "").trim() : ""
+          }))
+        };
+
+        if (!order.customerName.trim() || !order.customerEmail.trim()) {
+          statusEl.textContent = "Enter customer name and email before checkout.";
+          return;
+        }
+
+        statusEl.textContent = `Processing order for ${order.customerName}...`;
+        setSubmitting(true);
+
+        try {
+          const slackResult = await sendSlackNotification(order);
+
+          if (slackResult.ok) {
+            statusEl.textContent =
+              `${order.customerName} placed an order for ${itemCount} item${itemCount === 1 ? "" : "s"} (${order.price}). Slack notified #codex-kids-arts-crafts successfully.`;
+          } else {
+            statusEl.textContent =
+              `${order.customerName} placed an order for ${itemCount} item${itemCount === 1 ? "" : "s"} (${order.price}), but the Slack notification failed.`;
+          }
+
+          purchaseForm.reset();
+          cart.length = 0;
+          renderCart();
+        } catch (error) {
+          statusEl.textContent =
+            `${order.customerName} placed an order for ${itemCount} item${itemCount === 1 ? "" : "s"} (${order.price}), but the Slack notification could not be sent.`;
+        } finally {
+          setSubmitting(false);
+        }
+      });
+
+      renderCart();
+    </script>
+  </body>
+</html>

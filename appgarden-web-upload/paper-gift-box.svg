@@ -1,0 +1,37 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="600" y1="0" x2="600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1874E2"/>
+      <stop offset="1" stop-color="#0957B3"/>
+    </linearGradient>
+    <filter id="shadow" x="130" y="130" width="970" height="700" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="24"/>
+      <feGaussianBlur stdDeviation="18"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.05 0 0 0 0 0.11 0 0 0 0 0.2 0 0 0 0.42 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_1" result="shape"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <ellipse cx="392" cy="680" rx="202" ry="42" fill="black" fill-opacity="0.23"/>
+  <ellipse cx="816" cy="680" rx="214" ry="42" fill="black" fill-opacity="0.24"/>
+
+  <g filter="url(#shadow)">
+    <path d="M208 500L392 396L582 500L392 609L208 500Z" fill="#F8C6CC"/>
+    <path d="M208 500V657L392 761V609L208 500Z" fill="#EFA8B2"/>
+    <path d="M582 500V657L392 761V609L582 500Z" fill="#DA919F"/>
+    <path d="M334 425L392 396L451 425L392 497L334 425Z" fill="#FFDDE1"/>
+    <path d="M392 396V761" stroke="#FCEFF1" stroke-width="16" stroke-linecap="round"/>
+    <path d="M208 500H582" stroke="#FCEFF1" stroke-width="16" stroke-linecap="round"/>
+
+    <path d="M638 508L816 404L997 508L816 614L638 508Z" fill="#C8C2F2"/>
+    <path d="M638 508V665L816 769V614L638 508Z" fill="#AA9EE6"/>
+    <path d="M997 508V665L816 769V614L997 508Z" fill="#9487D8"/>
+    <path d="M758 435L816 404L874 435L816 505L758 435Z" fill="#E0DAFF"/>
+    <path d="M816 404V769" stroke="#ECE8FF" stroke-width="16" stroke-linecap="round"/>
+    <path d="M638 508H997" stroke="#ECE8FF" stroke-width="16" stroke-linecap="round"/>
+  </g>
+</svg>

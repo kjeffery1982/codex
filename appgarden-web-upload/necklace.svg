@@ -1,0 +1,71 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="600" y1="0" x2="600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7CCD3"/>
+      <stop offset="1" stop-color="#F3BEC8"/>
+    </linearGradient>
+    <filter id="soft" x="120" y="120" width="960" height="660" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="10"/>
+      <feGaussianBlur stdDeviation="10"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.35 0 0 0 0 0.25 0 0 0 0 0.24 0 0 0 0.22 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_0_1" result="shape"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#bg)"/>
+
+  <g filter="url(#soft)">
+    <path d="M190 262C272 233 355 221 438 224C520 227 602 241 683 261C742 276 802 286 862 292" stroke="#84D0D5" stroke-width="14" stroke-linecap="round" stroke-dasharray="2 18"/>
+    <circle cx="192" cy="262" r="13" fill="#F7B54A"/>
+    <circle cx="862" cy="292" r="13" fill="#F7B54A"/>
+    <circle cx="325" cy="236" r="20" fill="#FF8B68"/>
+    <circle cx="390" cy="230" r="18" fill="#7AC0D8"/>
+    <circle cx="456" cy="231" r="22" fill="#9BC281"/>
+    <circle cx="522" cy="239" r="20" fill="#F7B54A"/>
+    <circle cx="586" cy="250" r="18" fill="#FF8B68"/>
+    <circle cx="648" cy="263" r="20" fill="#7AC0D8"/>
+    <circle cx="712" cy="275" r="18" fill="#9BC281"/>
+    <circle cx="772" cy="284" r="20" fill="#F7B54A"/>
+    <circle cx="825" cy="290" r="18" fill="#FF8B68"/>
+
+    <path d="M286 494C356 432 454 406 550 410C646 414 742 449 812 510" stroke="#86C6BE" stroke-width="12" stroke-linecap="round" stroke-dasharray="2 16"/>
+    <path d="M286 494C338 585 452 651 560 659C667 667 775 617 812 510" stroke="#86C6BE" stroke-width="12" stroke-linecap="round" stroke-dasharray="2 16"/>
+
+    <circle cx="286" cy="494" r="14" fill="#F7B54A"/>
+    <circle cx="812" cy="510" r="14" fill="#F7B54A"/>
+
+    <circle cx="356" cy="450" r="18" fill="#FF8B68"/>
+    <circle cx="434" cy="424" r="18" fill="#F7B54A"/>
+    <circle cx="517" cy="415" r="18" fill="#7AC0D8"/>
+    <circle cx="602" cy="421" r="18" fill="#9BC281"/>
+    <circle cx="683" cy="444" r="18" fill="#FF8B68"/>
+    <circle cx="748" cy="476" r="18" fill="#F7B54A"/>
+
+    <circle cx="354" cy="556" r="18" fill="#7AC0D8"/>
+    <circle cx="426" cy="609" r="18" fill="#F7B54A"/>
+    <circle cx="505" cy="640" r="18" fill="#FF8B68"/>
+    <circle cx="588" cy="649" r="18" fill="#7AC0D8"/>
+    <circle cx="670" cy="632" r="18" fill="#9BC281"/>
+    <circle cx="742" cy="589" r="18" fill="#F7B54A"/>
+
+    <g transform="translate(506 462)">
+      <rect x="0" y="0" width="66" height="66" rx="33" fill="#FFF5EF"/>
+      <text x="33" y="42" text-anchor="middle" font-family="Baloo 2, Trebuchet MS, sans-serif" font-size="30" font-weight="700" fill="#333333">L</text>
+    </g>
+    <g transform="translate(576 466)">
+      <rect x="0" y="0" width="66" height="66" rx="33" fill="#FFF5EF"/>
+      <text x="33" y="42" text-anchor="middle" font-family="Baloo 2, Trebuchet MS, sans-serif" font-size="30" font-weight="700" fill="#333333">O</text>
+    </g>
+    <g transform="translate(646 472)">
+      <rect x="0" y="0" width="66" height="66" rx="33" fill="#FFF5EF"/>
+      <text x="33" y="42" text-anchor="middle" font-family="Baloo 2, Trebuchet MS, sans-serif" font-size="30" font-weight="700" fill="#333333">V</text>
+    </g>
+    <g transform="translate(716 486)">
+      <rect x="0" y="0" width="66" height="66" rx="33" fill="#FFF5EF"/>
+      <text x="33" y="42" text-anchor="middle" font-family="Baloo 2, Trebuchet MS, sans-serif" font-size="30" font-weight="700" fill="#333333">E</text>
+    </g>
+  </g>
+</svg>
