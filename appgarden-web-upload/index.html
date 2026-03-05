@@ -237,6 +237,13 @@
               <span>Order total</span>
               <strong id="order-total">$0</strong>
             </div>
+            <div class="totals-breakdown">
+              <div><span>Subtotal</span><strong id="subtotal-amount">$0</strong></div>
+              <div><span>Bundle savings</span><strong id="bundle-savings">-$0</strong></div>
+              <div><span>Shipping</span><strong id="shipping-amount">$0</strong></div>
+              <div><span>Gift wrap</span><strong id="gift-wrap-amount">$0</strong></div>
+              <div><span>Classroom tip</span><strong id="tip-amount">$0</strong></div>
+            </div>
             <form id="purchase-form" class="purchase-form">
               <label>
                 Customer name
@@ -246,6 +253,30 @@
                 Customer email
                 <input id="customer-email" name="customerEmail" type="email" placeholder="taylor@example.com" required />
               </label>
+              <fieldset class="order-options">
+                <legend>Order options</legend>
+                <label>
+                  Shipping
+                  <select id="shipping-option" name="shippingOption">
+                    <option value="pickup" data-cost="0">Local pickup (free)</option>
+                    <option value="standard" data-cost="2">Standard shipping ($2)</option>
+                    <option value="priority" data-cost="5">Priority shipping ($5)</option>
+                  </select>
+                </label>
+                <label class="checkbox-row">
+                  <input id="gift-wrap" name="giftWrap" type="checkbox" />
+                  Add gift wrap for $1
+                </label>
+                <label>
+                  Tip the classroom makers
+                  <select id="tip-amount-select" name="tipAmount">
+                    <option value="0">$0</option>
+                    <option value="1">$1</option>
+                    <option value="3">$3</option>
+                    <option value="5">$5</option>
+                  </select>
+                </label>
+              </fieldset>
               <fieldset class="payment-fieldset">
                 <legend>Payment details</legend>
                 <label>
@@ -334,11 +365,19 @@
       const cardNumberInput = document.getElementById("card-number");
       const cardExpiryInput = document.getElementById("card-expiry");
       const cardCvcInput = document.getElementById("card-cvc");
+      const shippingOptionSelect = document.getElementById("shipping-option");
+      const giftWrapInput = document.getElementById("gift-wrap");
+      const tipAmountSelect = document.getElementById("tip-amount-select");
       const statusEl = document.getElementById("purchase-status");
       const buyButtons = document.querySelectorAll(".buy-button");
       const cartItemsEl = document.getElementById("cart-items");
       const cartEmptyEl = document.getElementById("cart-empty");
       const orderTotalEl = document.getElementById("order-total");
+      const subtotalAmountEl = document.getElementById("subtotal-amount");
+      const bundleSavingsEl = document.getElementById("bundle-savings");
+      const shippingAmountEl = document.getElementById("shipping-amount");
+      const giftWrapAmountEl = document.getElementById("gift-wrap-amount");
+      const tipAmountEl = document.getElementById("tip-amount");
       const checkoutButton = document.getElementById("checkout-button");
 
       const orderEndpoint = "/api/orders";
@@ -400,8 +439,51 @@
         return cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
       }
 
+      function getItemCount() {
+        return cart.reduce((sum, item) => sum + item.quantity, 0);
+      }
+
+      function getBundleSavings(subtotal, itemCount) {
+        if (itemCount >= 4) return 3;
+        if (itemCount >= 2 && subtotal >= 10) return 1;
+        return 0;
+      }
+
+      function getShippingCost() {
+        const selected = shippingOptionSelect.options[shippingOptionSelect.selectedIndex];
+        return Number(selected?.dataset.cost || 0);
+      }
+
+      function getGiftWrapCost() {
+        return giftWrapInput.checked ? 1 : 0;
+      }
+
+      function getTipCost() {
+        return Number(tipAmountSelect.value || 0);
+      }
+
+      function getPricingBreakdown() {
+        const subtotal = getOrderTotal();
+        const itemCount = getItemCount();
+        const bundleSavings = getBundleSavings(subtotal, itemCount);
+        const shipping = subtotal > 0 ? getShippingCost() : 0;
+        const giftWrap = subtotal > 0 ? getGiftWrapCost() : 0;
+        const tip = subtotal > 0 ? getTipCost() : 0;
+        const total = Math.max(0, subtotal - bundleSavings + shipping + giftWrap + tip);
+
+        return {
+          itemCount,
+          subtotal,
+          bundleSavings,
+          shipping,
+          giftWrap,
+          tip,
+          total
+        };
+      }
+
       function updateCheckoutButton() {
-        const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+        const itemCount = getItemCount();
         checkoutButton.disabled = itemCount === 0;
         checkoutButton.textContent = itemCount > 0 ? `Complete Order (${itemCount} item${itemCount === 1 ? "" : "s"})` : "Complete Order";
       }
@@ -412,6 +494,11 @@
         if (cart.length === 0) {
           cartEmptyEl.style.display = "block";
           orderTotalEl.textContent = "$0";
+          subtotalAmountEl.textContent = "$0";
+          bundleSavingsEl.textContent = "-$0";
+          shippingAmountEl.textContent = "$0";
+          giftWrapAmountEl.textContent = "$0";
+          tipAmountEl.textContent = "$0";
           updateCheckoutButton();
           return;
         }
@@ -464,7 +551,13 @@
           cartItemsEl.appendChild(row);
         });
 
-        orderTotalEl.textContent = formatDollars(getOrderTotal());
+        const pricing = getPricingBreakdown();
+        orderTotalEl.textContent = formatDollars(pricing.total);
+        subtotalAmountEl.textContent = formatDollars(pricing.subtotal);
+        bundleSavingsEl.textContent = `-${formatDollars(pricing.bundleSavings)}`;
+        shippingAmountEl.textContent = formatDollars(pricing.shipping);
+        giftWrapAmountEl.textContent = formatDollars(pricing.giftWrap);
+        tipAmountEl.textContent = formatDollars(pricing.tip);
         updateCheckoutButton();
       }
 
@@ -534,6 +627,10 @@
         cardCvcInput.value = normalizeDigits(cardCvcInput.value).slice(0, 4);
       });
 
+      shippingOptionSelect.addEventListener("change", renderCart);
+      giftWrapInput.addEventListener("change", renderCart);
+      tipAmountSelect.addEventListener("change", renderCart);
+
       async function sendSlackNotification(order) {
         const response = await fetch(orderEndpoint, {
           method: "POST",
@@ -564,7 +661,8 @@
           }
         }
 
-        const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+        const pricing = getPricingBreakdown();
+        const itemCount = pricing.itemCount;
         const cardDigits = normalizeDigits(cardNumberInput.value);
         const cvcDigits = normalizeDigits(cardCvcInput.value);
 
@@ -585,11 +683,23 @@
 
         const order = {
           product: itemCount === 1 ? cart[0].product : `${itemCount} items`,
-          price: formatDollars(getOrderTotal()),
+          price: formatDollars(pricing.total),
           customerName: customerNameInput.value,
           customerEmail: customerEmailInput.value,
           purchasedAt: new Date().toISOString(),
           paymentLast4: cardDigits.slice(-4),
+          pricing: {
+            subtotal: pricing.subtotal,
+            bundleSavings: pricing.bundleSavings,
+            shipping: pricing.shipping,
+            giftWrap: pricing.giftWrap,
+            tip: pricing.tip,
+            total: pricing.total
+          },
+          fulfillment: {
+            shippingOption: shippingOptionSelect.value,
+            giftWrap: giftWrapInput.checked
+          },
           items: cart.map((item) => ({
             product: item.product,
             quantity: item.quantity,
@@ -611,7 +721,7 @@
 
           if (slackResult.ok) {
             statusEl.textContent =
-              `${order.customerName} placed an order for ${itemCount} item${itemCount === 1 ? "" : "s"} (${order.price}). Slack notified #codex-kids-arts-crafts successfully.`;
+              `${order.customerName} placed an order for ${itemCount} item${itemCount === 1 ? "" : "s"} (${order.price}) on card ending ${order.paymentLast4}. Slack notified #codex-kids-arts-crafts successfully.`;
           } else {
             statusEl.textContent =
               `${order.customerName} placed an order for ${itemCount} item${itemCount === 1 ? "" : "s"} (${order.price}), but the Slack notification failed.`;

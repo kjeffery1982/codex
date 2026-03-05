@@ -41,6 +41,8 @@ async function sendSlackNotification(order) {
     `New purchase for Kid's Arts and Crafts\n` +
     `Product: ${order.product}\n` +
     `Price: ${order.price}\n` +
+    `${order.pricing ? `Subtotal: $${order.pricing.subtotal}, Savings: $${order.pricing.bundleSavings}, Shipping: $${order.pricing.shipping}, Gift wrap: $${order.pricing.giftWrap}, Tip: $${order.pricing.tip}\n` : ""}` +
+    `${order.fulfillment ? `Fulfillment: ${order.fulfillment.shippingOption}${order.fulfillment.giftWrap ? " + gift wrap" : ""}\n` : ""}` +
     `${order.paymentLast4 ? `Payment: Card ending ${order.paymentLast4}\n` : ""}` +
     `${itemLines ? `Items:\n${itemLines}\n` : ""}` +
     `Customer: ${order.customerName}\n` +
@@ -120,6 +122,24 @@ const server = createServer(async (req, res) => {
         if (!/^\d{4}$/.test(String(order.paymentLast4 || ""))) {
           json(res, 400, { error: "Missing valid payment details" });
           return;
+        }
+
+        if (order.pricing) {
+          const subtotal = Number(order.pricing.subtotal);
+          const bundleSavings = Number(order.pricing.bundleSavings);
+          const shipping = Number(order.pricing.shipping);
+          const giftWrap = Number(order.pricing.giftWrap);
+          const tip = Number(order.pricing.tip);
+          const total = Number(order.pricing.total);
+          const expectedTotal = subtotal - bundleSavings + shipping + giftWrap + tip;
+
+          if (
+            [subtotal, bundleSavings, shipping, giftWrap, tip, total].some((value) => Number.isNaN(value) || value < 0) ||
+            Math.abs(expectedTotal - total) > 0.001
+          ) {
+            json(res, 400, { error: "Invalid pricing breakdown" });
+            return;
+          }
         }
 
         if (Array.isArray(order.items)) {

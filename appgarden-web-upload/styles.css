@@ -617,6 +617,50 @@ p {
   gap: 14px;
 }
 
+.order-options {
+  margin: 0;
+  padding: 12px;
+  border: 1px solid rgba(120, 64, 101, 0.18);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.75);
+  display: grid;
+  gap: 10px;
+}
+
+.order-options legend {
+  padding: 0 6px;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.order-options label {
+  display: grid;
+  gap: 6px;
+  font-weight: 700;
+}
+
+.order-options select {
+  width: 100%;
+  min-height: 46px;
+  border-radius: 12px;
+  border: 1px solid rgba(120, 64, 101, 0.18);
+  padding: 0 10px;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+}
+
+.checkbox-row {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkbox-row input {
+  width: 18px;
+  height: 18px;
+}
+
 .payment-fieldset {
   margin: 0;
   padding: 12px;
@@ -735,6 +779,24 @@ p {
 
 .cart-summary strong {
   font-size: 1.2rem;
+}
+
+.totals-breakdown {
+  display: grid;
+  gap: 6px;
+  border-top: 1px dashed rgba(120, 64, 101, 0.22);
+  border-bottom: 1px dashed rgba(120, 64, 101, 0.22);
+  padding: 10px 0;
+}
+
+.totals-breakdown div {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+}
+
+.totals-breakdown strong {
+  color: var(--ink);
 }
 
 .purchase-form label {
