@@ -1,0 +1,4 @@
+interface:
+  display_name: "Super Clippy Reviewer"
+  short_description: "Gatekeep weak prompts before costly Codex runs"
+  default_prompt: "Use $super-clippy-reviewer to score my prompt and require FIX_PROMPT or RUN_ANYWAY before execution."

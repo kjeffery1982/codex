@@ -1,0 +1,4 @@
+interface:
+  display_name: "Super Clippy"
+  short_description: "Write stronger Codex prompts for better outcomes"
+  default_prompt: "Use $super-clippy to rewrite my request into a high-signal Codex prompt with scope, constraints, and acceptance checks."
