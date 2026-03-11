@@ -1,29 +1,30 @@
 import SwiftUI
+import UIKit
 
 enum Palette {
-    static let paper = Color(red: 0.965, green: 0.97, blue: 0.982)
+    static let paper = Color(red: 0.965, green: 0.957, blue: 0.937)
     static let surface = Color.white
-    static let ink = Color(red: 0.09, green: 0.11, blue: 0.16)
-    static let blue = Color(red: 0.16, green: 0.4, blue: 0.98)
-    static let sky = Color(red: 0.84, green: 0.91, blue: 1.0)
-    static let pink = Color(red: 0.98, green: 0.87, blue: 0.94)
-    static let orange = Color(red: 1.0, green: 0.66, blue: 0.24)
-    static let peach = Color(red: 0.98, green: 0.94, blue: 0.9)
-    static let lemon = Color(red: 1.0, green: 0.95, blue: 0.72)
-    static let mint = Color(red: 0.82, green: 0.94, blue: 0.88)
-    static let coral = Color(red: 0.95, green: 0.62, blue: 0.62)
-    static let cream = Color(red: 0.985, green: 0.988, blue: 0.995)
+    static let ink = Color(red: 0.118, green: 0.118, blue: 0.102)
+    static let blue = Color(red: 0.286, green: 0.416, blue: 0.341)
+    static let sky = Color(red: 0.863, green: 0.906, blue: 0.875)
+    static let pink = Color(red: 0.942, green: 0.922, blue: 0.893)
+    static let orange = Color(red: 0.717, green: 0.576, blue: 0.431)
+    static let peach = Color(red: 0.953, green: 0.94, blue: 0.912)
+    static let lemon = Color(red: 0.918, green: 0.9, blue: 0.824)
+    static let mint = Color(red: 0.812, green: 0.878, blue: 0.826)
+    static let coral = Color(red: 0.769, green: 0.62, blue: 0.565)
+    static let cream = Color(red: 0.979, green: 0.972, blue: 0.955)
     static let line = Color.black.opacity(0.08)
     static let shadow = Color.black.opacity(0.08)
 
     static let heroBackground = LinearGradient(
-        colors: [Color.white, sky, pink, Color(red: 1.0, green: 0.94, blue: 0.84)],
+        colors: [Color.white, sky, pink, peach],
         startPoint: .topLeading,
         endPoint: .bottomTrailing
     )
 
     static let pageBackground = LinearGradient(
-        colors: [paper, Color(red: 0.95, green: 0.97, blue: 1.0)],
+        colors: [paper, Color(red: 0.957, green: 0.965, blue: 0.943)],
         startPoint: .top,
         endPoint: .bottom
     )
@@ -38,9 +39,11 @@ enum AppTab: Int {
 }
 
 enum TechBrand: String, CaseIterable, Identifiable {
+    case swagSwap = "SwagSwap"
     case openAI = "OpenAI"
     case google = "Google"
     case uber = "Uber"
+    case statsig = "Statsig"
     case box = "Box"
     case netflix = "Netflix"
     case stripe = "Stripe"
@@ -50,9 +53,11 @@ enum TechBrand: String, CaseIterable, Identifiable {
 
     var wordmark: String {
         switch self {
+        case .swagSwap: return "SWAGSWAP"
         case .openAI: return "OPENAI"
         case .google: return "GOOGLE"
         case .uber: return "UBER"
+        case .statsig: return "STATSIG"
         case .box: return "BOX"
         case .netflix: return "NETFLIX"
         case .stripe: return "STRIPE"
@@ -60,11 +65,24 @@ enum TechBrand: String, CaseIterable, Identifiable {
         }
     }
 
+    var assetName: String? {
+        switch self {
+        case .openAI: return "openai-logo"
+        case .google: return "google-logo"
+        case .uber: return "uber-logo"
+        case .statsig: return "statsig-logo"
+        case .netflix: return "netflix-logo"
+        default: return nil
+        }
+    }
+
     var colors: [Color] {
         switch self {
+        case .swagSwap: return [Palette.blue, Palette.orange]
         case .openAI: return [Palette.blue, Palette.sky]
         case .google: return [Color(red: 0.21, green: 0.42, blue: 0.95), Color(red: 0.93, green: 0.27, blue: 0.24), Color(red: 0.97, green: 0.77, blue: 0.21), Color(red: 0.2, green: 0.67, blue: 0.32)]
         case .uber: return [Palette.ink, Palette.mint]
+        case .statsig: return [Color(red: 0.45, green: 0.35, blue: 0.94), Color(red: 0.95, green: 0.33, blue: 0.7)]
         case .box: return [Palette.blue, Palette.sky]
         case .netflix: return [Palette.coral, Palette.orange]
         case .stripe: return [Color(red: 0.43, green: 0.44, blue: 0.98), Palette.sky]
@@ -78,6 +96,7 @@ enum SwagCategory: String, CaseIterable, Identifiable {
     case tshirt = "T-Shirt"
     case hoodie = "Hoodie"
     case jacket = "Jacket"
+    case hat = "Hat"
     case notebook = "Notebook"
     case bottle = "Bottle"
     case bundle = "Bundle"
@@ -90,6 +109,7 @@ enum SwagCategory: String, CaseIterable, Identifiable {
         case .tshirt: return "tshirt.fill"
         case .hoodie: return "square.stack.3d.up.fill"
         case .jacket: return "shield.fill"
+        case .hat: return "baseballcap.fill"
         case .notebook: return "book.closed.fill"
         case .bottle: return "cup.and.saucer.fill"
         case .bundle: return "shippingbox.fill"
@@ -102,6 +122,7 @@ enum SwagCategory: String, CaseIterable, Identifiable {
         case .tshirt: return 10
         case .hoodie: return 25
         case .jacket: return 50
+        case .hat: return 9
         case .notebook: return 8
         case .bottle: return 7
         case .bundle: return 35
@@ -143,6 +164,11 @@ enum DraftMarket: String, CaseIterable, Identifiable {
 }
 
 enum ArtStyle: String {
+    case swagSwapTee
+    case swagSwapHoodie
+    case swagSwapStickerPack
+    case swagSwapVest
+    case swagSwapThumbnail
     case openAIStickerSheet
     case googleNotebook
     case uberHoodie
@@ -158,6 +184,10 @@ enum ArtStyle: String {
     case stripeBottle
     case googleStickerSheet
     case openAIBundleBox
+    case statsigHoodie
+    case openAITruckerHat
+    case googleTruckerHat
+    case netflixTruckerHat
 }
 
 struct Listing: Identifiable {
@@ -295,6 +325,15 @@ enum SeedData {
             isMember: false
         ),
         CompanyCircle(
+            brand: .statsig,
+            name: "Statsig Launch Lab",
+            memberCount: 31,
+            liveListings: 8,
+            requirement: "Current company email or launch event verification.",
+            accessNote: "Best for experiment week hoodies, stickers, and founder-era drops.",
+            isMember: false
+        ),
+        CompanyCircle(
             brand: .box,
             name: "Box Blue Room",
             memberCount: 39,
@@ -316,6 +355,66 @@ enum SeedData {
 
     static let listings: [Listing] = [
         Listing(
+            title: "SwagSwap Launch Tee",
+            company: .swagSwap,
+            category: .tshirt,
+            tokenPrice: 12,
+            intent: .tokenSale,
+            condition: .mint,
+            size: "L",
+            description: "Meta on purpose. Soft cotton tee with the SwagSwap logo lockup on chest and a tiny 'trade up' mark on the sleeve.",
+            sellerName: "SwagSwap Studio",
+            sellerRole: "Marketplace drop",
+            location: "San Francisco",
+            verifiedPhotos: 5,
+            demand: "House merch",
+            year: "2026",
+            isFeatured: true,
+            isRetro: false,
+            circleName: nil,
+            art: .swagSwapTee
+        ),
+        Listing(
+            title: "SwagSwap Core Hoodie",
+            company: .swagSwap,
+            category: .hoodie,
+            tokenPrice: 26,
+            intent: .tokenSale,
+            condition: .mint,
+            size: "M",
+            description: "Heather gray hoodie using the same mark as the app icon, styled like a real team issue piece instead of novelty merch.",
+            sellerName: "SwagSwap Studio",
+            sellerRole: "Marketplace drop",
+            location: "San Francisco",
+            verifiedPhotos: 5,
+            demand: "Warm-up layer",
+            year: "2026",
+            isFeatured: false,
+            isRetro: false,
+            circleName: nil,
+            art: .swagSwapHoodie
+        ),
+        Listing(
+            title: "SwagSwap Sticker Pack",
+            company: .swagSwap,
+            category: .stickers,
+            tokenPrice: 3,
+            intent: .tokenSale,
+            condition: .mint,
+            size: "Five pack",
+            description: "Die-cut launch stickers inspired by the brand sheet: logo mark, icon tile, hoodie sticker, and a tiny app tile.",
+            sellerName: "SwagSwap Studio",
+            sellerRole: "Marketplace drop",
+            location: "San Francisco",
+            verifiedPhotos: 4,
+            demand: "Easy add-on",
+            year: "2026",
+            isFeatured: false,
+            isRetro: false,
+            circleName: nil,
+            art: .swagSwapStickerPack
+        ),
+        Listing(
             title: "Research Sticker Sheet",
             company: .openAI,
             category: .stickers,
@@ -334,6 +433,26 @@ enum SeedData {
             isRetro: false,
             circleName: "OpenAI Verified Closet",
             art: .openAIStickerSheet
+        ),
+        Listing(
+            title: "OpenAI DevDay Trucker Hat",
+            company: .openAI,
+            category: .hat,
+            tokenPrice: 9,
+            intent: .tokenOrSwap,
+            condition: .excellent,
+            size: "Adjustable",
+            description: "Two-tone event hat with a structured front panel, rope brim detail, and a clean stitched OpenAI mark.",
+            sellerName: "Lena P.",
+            sellerRole: "Events",
+            location: "San Francisco",
+            verifiedPhotos: 5,
+            demand: "Conference staple",
+            year: "2025",
+            isFeatured: true,
+            isRetro: false,
+            circleName: "OpenAI Verified Closet",
+            art: .openAITruckerHat
         ),
         Listing(
             title: "Cloud Campus Notebook",
@@ -356,6 +475,26 @@ enum SeedData {
             art: .googleNotebook
         ),
         Listing(
+            title: "Google I/O Trail Hat",
+            company: .google,
+            category: .hat,
+            tokenPrice: 10,
+            intent: .tokenSale,
+            condition: .mint,
+            size: "Snapback",
+            description: "Event trucker hat in washed pine and cream, the kind of giveaway that disappears first at developer booths.",
+            sellerName: "Harper G.",
+            sellerRole: "DevRel",
+            location: "Mountain View",
+            verifiedPhotos: 5,
+            demand: "Fast mover",
+            year: "2025",
+            isFeatured: true,
+            isRetro: false,
+            circleName: "Google Gear Exchange",
+            art: .googleTruckerHat
+        ),
+        Listing(
             title: "Late Shift Ops Hoodie",
             company: .uber,
             category: .hoodie,
@@ -374,6 +513,26 @@ enum SeedData {
             isRetro: false,
             circleName: "Uber Ops Swap",
             art: .uberHoodie
+        ),
+        Listing(
+            title: "Statsig Experiment Week Hoodie",
+            company: .statsig,
+            category: .hoodie,
+            tokenPrice: 24,
+            intent: .tokenOrSwap,
+            condition: .excellent,
+            size: "L",
+            description: "Minimal launch-week hoodie with a small chest mark and soft purple interior taping.",
+            sellerName: "Clara Z.",
+            sellerRole: "Growth engineer",
+            location: "Seattle",
+            verifiedPhotos: 5,
+            demand: "Quiet flex",
+            year: "2025",
+            isFeatured: true,
+            isRetro: false,
+            circleName: "Statsig Launch Lab",
+            art: .statsigHoodie
         ),
         Listing(
             title: "Blue Room Summit Jacket",
@@ -414,6 +573,26 @@ enum SeedData {
             isRetro: true,
             circleName: "Netflix Retro Club",
             art: .netflixJurassicTee
+        ),
+        Listing(
+            title: "Platform Summit Trucker Hat",
+            company: .netflix,
+            category: .hat,
+            tokenPrice: 11,
+            intent: .tokenOrSwap,
+            condition: .great,
+            size: "Adjustable",
+            description: "Black mesh-backed trucker hat from a platform summit. More believable as event swag than another novelty tee.",
+            sellerName: "Theo J.",
+            sellerRole: "Former backend engineer",
+            location: "Los Gatos",
+            verifiedPhotos: 6,
+            demand: "Retro sidecar",
+            year: "2019",
+            isFeatured: false,
+            isRetro: true,
+            circleName: "Netflix Retro Club",
+            art: .netflixTruckerHat
         ),
         Listing(
             title: "Octocat Sticker Drop",
@@ -619,6 +798,16 @@ enum SeedData {
 
     static let auctions: [AuctionLot] = [
         AuctionLot(
+            title: "SwagSwap Founders Box",
+            company: .swagSwap,
+            currentBid: 32,
+            buyNow: 55,
+            endsIn: "10h 12m",
+            watchers: 19,
+            story: "Launch bundle with tee, sticker, and the blue icon card framed as a first-community drop.",
+            art: .swagSwapThumbnail
+        ),
+        AuctionLot(
             title: "Netflix Hackathon 2012 Tee",
             company: .netflix,
             currentBid: 42,
@@ -744,16 +933,24 @@ final class MarketplaceViewModel: ObservableObject {
 
     var draftArt: ArtStyle {
         switch (draftBrand, draftCategory) {
+        case (.swagSwap, .tshirt): return .swagSwapTee
+        case (.swagSwap, .hoodie): return .swagSwapHoodie
+        case (.swagSwap, .stickers): return .swagSwapStickerPack
+        case (.swagSwap, .bundle): return .swagSwapThumbnail
+        case (.statsig, .hoodie): return .statsigHoodie
+        case (.openAI, .hat): return .openAITruckerHat
         case (.openAI, .stickers): return .openAIStickerSheet
         case (.openAI, .notebook): return .openAINotebook
         case (.openAI, .jacket): return .openAIResearchJacket
         case (.openAI, .bundle): return .openAIBundleBox
+        case (.google, .hat): return .googleTruckerHat
         case (.google, .notebook): return .googleNotebook
         case (.google, .bottle): return .googleBottle
         case (.google, .stickers): return .googleStickerSheet
         case (.uber, .hoodie): return .uberHoodie
         case (.box, .jacket): return .boxJacket
         case (.box, .stickers): return .boxStickerSheet
+        case (.netflix, .hat): return .netflixTruckerHat
         case (.netflix, .tshirt): return .netflixJurassicTee
         case (.github, .notebook): return .githubNotebook
         case (.github, .stickers): return .githubStickerPack
@@ -762,6 +959,7 @@ final class MarketplaceViewModel: ObservableObject {
         case (_, .tshirt): return .stripeConferenceTee
         case (_, .hoodie): return .uberHoodie
         case (_, .jacket): return .boxJacket
+        case (_, .hat): return .googleTruckerHat
         case (_, .notebook): return .googleNotebook
         case (_, .bottle): return .googleBottle
         case (_, .bundle): return .openAIBundleBox
@@ -854,9 +1052,16 @@ struct DiscoverView: View {
                 }
                 .scrollIndicators(.hidden)
             }
-            .navigationTitle("SwagSwap")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack(spacing: 8) {
+                        SwagSwapLogoMark(size: 26)
+                        Text("SwagSwap")
+                            .font(.system(.title3, design: .rounded, weight: .bold))
+                            .foregroundStyle(Palette.ink)
+                    }
+                }
                 ToolbarItem(placement: .topBarTrailing) {
                     TokenBadge(tokens: model.walletBalance)
                 }
@@ -871,6 +1076,12 @@ struct DiscoverView: View {
                     .font(.system(size: 30, weight: .bold, design: .rounded))
                     .foregroundStyle(Palette.ink)
                     .fixedSize(horizontal: false, vertical: true)
+
+                HStack(spacing: 12) {
+                    SwagSwapLogoLockup()
+                    Spacer()
+                    SwagSwapThumbnailBadge()
+                }
 
                 Text("Discover fixed-price team merch, company closet clean-outs, and verified circle drops. Use Vault when the item is rare enough to bid on.")
                     .font(.system(.body, design: .rounded, weight: .medium))
@@ -1859,31 +2070,38 @@ struct SwagArtView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 22, style: .continuous)
-                .fill(Palette.shadow)
-                .offset(x: 4, y: 4)
-
-            RoundedRectangle(cornerRadius: 22, style: .continuous)
-                .fill(LinearGradient(colors: [Palette.paper, brand.colors.first?.opacity(0.35) ?? Palette.sky, brand.colors.last?.opacity(0.24) ?? Palette.peach], startPoint: .topLeading, endPoint: .bottomTrailing))
+                .fill(LinearGradient(colors: [Palette.surface, brand.colors.first?.opacity(0.12) ?? Palette.sky, Palette.surface], startPoint: .topLeading, endPoint: .bottomTrailing))
                 .overlay(
                     RoundedRectangle(cornerRadius: 22, style: .continuous)
-                        .stroke(Palette.ink, lineWidth: 2)
+                        .stroke(Palette.line, lineWidth: 1)
                 )
+                .shadow(color: Palette.shadow, radius: 16, x: 0, y: 10)
 
             switch style {
+            case .swagSwapTee:
+                swagSwapTeeView()
+            case .swagSwapHoodie:
+                swagSwapHoodieView()
+            case .swagSwapStickerPack:
+                swagSwapStickerPackView()
+            case .swagSwapVest:
+                swagSwapVestView()
+            case .swagSwapThumbnail:
+                swagSwapThumbnailView()
             case .openAIStickerSheet:
                 stickerSheetView(title: "RESEARCH", brand: brand, subtitle: "Sticker sheet")
             case .googleNotebook:
                 notebookView(title: "Campus\nNotebook", brand: brand)
             case .uberHoodie:
-                garmentView(symbol: "square.stack.3d.up.fill", title: "UBER\nOPS", subtitle: "late shift hoodie", brand: brand)
+                hoodieMockupView(baseColor: Color(red: 0.15, green: 0.16, blue: 0.18), title: "UBER", subtitle: "ops hoodie", brand: brand)
             case .boxJacket:
-                garmentView(symbol: "shield.fill", title: "BOX\nBLUE ROOM", subtitle: "summit jacket", brand: brand)
+                vestMockupView(baseColor: Color(red: 0.9, green: 0.91, blue: 0.93), title: "Box", subtitle: "summit vest", brand: brand)
             case .netflixJurassicTee:
                 jurassicView()
             case .githubStickerPack:
                 stickerSheetView(title: "OCTOCAT", brand: brand, subtitle: "issue pack")
             case .stripeConferenceTee:
-                garmentView(symbol: "tshirt.fill", title: "DEV\nECONOMY", subtitle: "conference tee", brand: brand)
+                teeMockupView(baseColor: Color(red: 0.97, green: 0.97, blue: 0.98), title: "STRIPE", subtitle: "conference tee", brand: brand, highlight: brand.colors.first ?? Palette.blue)
             case .googleBottle:
                 bottleView(title: "Campus\nBottle", brand: brand)
             case .openAINotebook:
@@ -1891,7 +2109,7 @@ struct SwagArtView: View {
             case .boxStickerSheet:
                 stickerSheetView(title: "BOX\nARCHIVE", brand: brand, subtitle: "legacy stickers")
             case .openAIResearchJacket:
-                jacketView(title: "RESEARCH\nFIELD", subtitle: "issue jacket", brand: brand, accent: Palette.mint)
+                vestMockupView(baseColor: Color(red: 0.91, green: 0.92, blue: 0.94), title: "OpenAI", subtitle: "research vest", brand: brand)
             case .githubNotebook:
                 notebookView(title: "Ship\nLog", brand: brand, detail: "grid pages / commit tabs")
             case .stripeBottle:
@@ -1900,73 +2118,150 @@ struct SwagArtView: View {
                 stickerSheetView(title: "I/O\nICONS", brand: brand, subtitle: "campus sheet")
             case .openAIBundleBox:
                 bundleView(title: "STARTER\nBUNDLE", brand: brand)
+            case .statsigHoodie:
+                hoodieMockupView(baseColor: Color(red: 0.93, green: 0.93, blue: 0.96), title: "STATSIG", subtitle: "launch lab hoodie", brand: brand)
+            case .openAITruckerHat:
+                truckerHatView(baseColor: Color(red: 0.13, green: 0.17, blue: 0.15), frontColor: Palette.surface, brand: brand, subtitle: "devday hat")
+            case .googleTruckerHat:
+                truckerHatView(baseColor: Color(red: 0.37, green: 0.44, blue: 0.33), frontColor: Palette.surface, brand: brand, subtitle: "i/o trail hat")
+            case .netflixTruckerHat:
+                truckerHatView(baseColor: Color(red: 0.14, green: 0.14, blue: 0.16), frontColor: Color(red: 0.94, green: 0.94, blue: 0.92), brand: brand, subtitle: "platform summit")
             }
         }
+        .padding(10)
+    }
+
+    private func swagSwapTeeView() -> some View {
+        teeMockupView(baseColor: Color(red: 0.13, green: 0.14, blue: 0.17), title: "SwagSwap", subtitle: "launch tee", brand: .swagSwap, highlight: Palette.surface)
+    }
+
+    private func swagSwapHoodieView() -> some View {
+        hoodieMockupView(baseColor: Color(red: 0.9, green: 0.9, blue: 0.92), title: "SwagSwap", subtitle: "core hoodie", brand: .swagSwap)
+    }
+
+    private func swagSwapStickerPackView() -> some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 18, style: .continuous)
+                .fill(Color.white)
+                .frame(width: 138, height: 164)
+                .shadow(color: Palette.shadow, radius: 10, x: 0, y: 6)
+
+            VStack(spacing: 0) {
+                RoundedRectangle(cornerRadius: 18, style: .continuous)
+                    .fill(LinearGradient(colors: [Palette.blue, Color(red: 0.18, green: 0.31, blue: 0.75)], startPoint: .topLeading, endPoint: .bottomTrailing))
+                    .frame(height: 34)
+                    .overlay(
+                        HStack(spacing: 8) {
+                            SwagSwapLogoMark(size: 20)
+                            Text("SwagSwap")
+                                .font(.system(.caption, design: .rounded, weight: .bold))
+                                .foregroundStyle(Palette.surface)
+                        }
+                    )
+
+                ZStack {
+                    RoundedRectangle(cornerRadius: 0, style: .continuous)
+                        .fill(Color.white.opacity(0.55))
+
+                    VStack(spacing: 8) {
+                        HStack(spacing: 10) {
+                            stickerPiece(size: 46, circular: false)
+                            stickerPiece(size: 28, circular: false)
+                        }
+                        HStack(spacing: 10) {
+                            stickerPiece(size: 34, circular: true)
+                            hoodieSticker(size: 46)
+                        }
+                    }
+                    .padding(.top, 16)
+                }
+            }
+            .frame(width: 138, height: 164)
+            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+        }
+    }
+
+    private func swagSwapVestView() -> some View {
+        vestMockupView(baseColor: Color(red: 0.9, green: 0.9, blue: 0.92), title: "SwagSwap", subtitle: "softshell vest", brand: .swagSwap)
+    }
+
+    private func swagSwapThumbnailView() -> some View {
+        VStack(spacing: 10) {
+            SwagSwapAppThumbnail(cornerRadius: 22, showGlow: false)
+                .frame(width: 102, height: 102)
+
+            Text("app thumbnail")
+                .font(.system(.caption2, design: .rounded, weight: .bold))
+                .foregroundStyle(Palette.blue)
+        }
+        .padding(12)
     }
 
     private func stickerSheetView(title: String, brand: TechBrand, subtitle: String) -> some View {
-        VStack(spacing: 10) {
-            HStack(spacing: 8) {
-                ForEach(0..<3, id: \.self) { index in
-                    Circle()
-                        .fill(brand.colors[index % brand.colors.count])
-                        .frame(width: 24, height: 24)
-                        .overlay(Circle().stroke(Palette.ink, lineWidth: 2))
+        ZStack {
+            RoundedRectangle(cornerRadius: 18, style: .continuous)
+                .fill(Color.white)
+                .frame(width: 136, height: 154)
+                .shadow(color: Palette.shadow, radius: 10, x: 0, y: 6)
+
+            VStack(spacing: 12) {
+                HStack(spacing: 8) {
+                    ForEach(0..<3, id: \.self) { index in
+                        Circle()
+                            .fill(brand.colors[index % brand.colors.count])
+                            .frame(width: 24, height: 24)
+                            .overlay(Circle().stroke(Palette.line, lineWidth: 1))
+                    }
                 }
+                BrandLogoView(brand: brand, lightBackground: true, maxWidth: 74, maxHeight: 24)
+                Text(title)
+                    .font(.system(size: 20, weight: .bold, design: .rounded))
+                    .multilineTextAlignment(.center)
+                    .foregroundStyle(Palette.ink)
+                Text(subtitle)
+                    .font(.system(.caption, design: .rounded, weight: .semibold))
+                    .foregroundStyle(Palette.ink.opacity(0.6))
             }
-            Text(title)
-                .font(.system(size: 18, weight: .black, design: .rounded))
-                .multilineTextAlignment(.center)
-                .foregroundStyle(Palette.ink)
-            Text(subtitle.uppercased())
-                .font(.system(.caption2, design: .rounded, weight: .black))
-                .foregroundStyle(Palette.blue)
+            .padding(16)
         }
-        .padding(12)
     }
 
     private func notebookView(title: String, brand: TechBrand, detail: String = "graph paper / tabs") -> some View {
-        VStack(spacing: 10) {
-            RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .fill(Palette.cream)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 16, style: .continuous)
-                        .stroke(Palette.ink, lineWidth: 3)
-                )
-                .overlay(
-                    VStack(spacing: 8) {
-                        Text(brand.wordmark)
-                            .font(.system(.caption, design: .rounded, weight: .black))
-                            .foregroundStyle(Palette.blue)
-                        Text(title)
-                            .font(.system(size: 18, weight: .black, design: .rounded))
-                            .foregroundStyle(Palette.ink)
-                            .multilineTextAlignment(.center)
-                    }
-                    .padding(10)
-                )
-                .frame(width: 84, height: 110)
-            Text(detail)
-                .font(.system(.caption2, design: .rounded, weight: .black))
-                .foregroundStyle(Palette.ink.opacity(0.68))
-        }
-    }
+        ZStack {
+            RoundedRectangle(cornerRadius: 22, style: .continuous)
+                .fill(LinearGradient(colors: [Color.white, Palette.cream], startPoint: .top, endPoint: .bottom))
+                .frame(width: 130, height: 164)
+                .shadow(color: Palette.shadow, radius: 12, x: 0, y: 8)
 
-    private func garmentView(symbol: String, title: String, subtitle: String, brand: TechBrand) -> some View {
-        VStack(spacing: 10) {
-            Image(systemName: symbol)
-                .font(.system(size: 64, weight: .bold))
-                .foregroundStyle(brand.colors.first ?? Palette.blue)
-                .shadow(color: Palette.ink.opacity(0.12), radius: 0, x: 0, y: 4)
-            Text(title)
-                .font(.system(size: 18, weight: .black, design: .rounded))
-                .foregroundStyle(Palette.ink)
-                .multilineTextAlignment(.center)
-            Text(subtitle.uppercased())
-                .font(.system(.caption2, design: .rounded, weight: .black))
-                .foregroundStyle(Palette.blue)
+            RoundedRectangle(cornerRadius: 22, style: .continuous)
+                .stroke(Palette.line, lineWidth: 1)
+                .frame(width: 130, height: 164)
+
+            VStack(spacing: 12) {
+                RoundedRectangle(cornerRadius: 18, style: .continuous)
+                    .fill(Palette.surface)
+                    .frame(width: 88, height: 122)
+                    .shadow(color: Palette.shadow.opacity(0.8), radius: 8, x: 0, y: 4)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 18, style: .continuous)
+                            .stroke(Palette.line, lineWidth: 1)
+                    )
+                    .overlay(
+                        VStack(spacing: 10) {
+                            BrandLogoView(brand: brand, lightBackground: true, maxWidth: 66, maxHeight: 18)
+                            Text(title)
+                                .font(.system(size: 16, weight: .bold, design: .rounded))
+                                .foregroundStyle(Palette.ink)
+                                .multilineTextAlignment(.center)
+                        }
+                        .padding(10)
+                    )
+
+                Text(detail)
+                    .font(.system(.caption, design: .rounded, weight: .semibold))
+                    .foregroundStyle(Palette.ink.opacity(0.58))
+            }
         }
-        .padding(12)
     }
 
     private func bottleView(title: String, brand: TechBrand) -> some View {
@@ -1974,81 +2269,45 @@ struct SwagArtView: View {
     }
 
     private func bottleView(title: String, brand: TechBrand, accentBands: Bool) -> some View {
-        VStack(spacing: 10) {
-            RoundedRectangle(cornerRadius: 18, style: .continuous)
+        ZStack {
+            Capsule()
+                .fill(Color.black.opacity(0.06))
+                .frame(width: 72, height: 14)
+                .offset(y: 62)
+
+            RoundedRectangle(cornerRadius: 20, style: .continuous)
                 .fill(brand.colors.first ?? Palette.blue)
-                .frame(width: 48, height: 94)
+                .frame(width: 58, height: 126)
+                .shadow(color: Palette.shadow, radius: 10, x: 0, y: 8)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 18, style: .continuous)
-                        .stroke(Palette.ink, lineWidth: 3)
+                    RoundedRectangle(cornerRadius: 20, style: .continuous)
+                        .stroke(Palette.line, lineWidth: 1)
                 )
                 .overlay(
                     ZStack {
                         if accentBands {
-                            VStack(spacing: 10) {
-                                Capsule()
-                                    .fill(brand.colors.last ?? Palette.sky)
-                                    .frame(width: 28, height: 10)
-                                Capsule()
-                                    .fill(Palette.paper.opacity(0.9))
-                                    .frame(width: 22, height: 8)
-                                Capsule()
-                                    .fill(brand.colors.last ?? Palette.sky)
-                                    .frame(width: 28, height: 10)
+                            VStack(spacing: 12) {
+                                Capsule().fill(brand.colors.last ?? Palette.sky).frame(width: 30, height: 8)
+                                Capsule().fill(Palette.surface.opacity(0.9)).frame(width: 24, height: 8)
+                                Capsule().fill(brand.colors.last ?? Palette.sky).frame(width: 30, height: 8)
                             }
                         }
-                        Rectangle()
-                            .fill(Palette.paper)
-                            .frame(width: 26, height: 16)
-                            .offset(y: -44)
+
+                        RoundedRectangle(cornerRadius: 6, style: .continuous)
+                            .fill(Palette.surface)
+                            .frame(width: 34, height: 22)
+                            .overlay(
+                                BrandLogoView(brand: brand, lightBackground: true, maxWidth: 24, maxHeight: 10)
+                            )
+                            .offset(y: -48)
                     }
                 )
-            Text(title)
-                .font(.system(size: 18, weight: .black, design: .rounded))
-                .foregroundStyle(Palette.ink)
-                .multilineTextAlignment(.center)
-        }
-        .padding(12)
-    }
-
-    private func jacketView(title: String, subtitle: String, brand: TechBrand, accent: Color) -> some View {
-        VStack(spacing: 10) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 22, style: .continuous)
-                    .fill(brand.colors.first ?? Palette.blue)
-                    .frame(width: 94, height: 102)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 22, style: .continuous)
-                            .stroke(Palette.ink, lineWidth: 3)
-                    )
-
-                VStack(spacing: 8) {
-                    Capsule()
-                        .fill(accent)
-                        .frame(width: 34, height: 10)
-                    RoundedRectangle(cornerRadius: 8, style: .continuous)
-                        .fill(Palette.paper.opacity(0.88))
-                        .frame(width: 18, height: 42)
-                    HStack(spacing: 16) {
-                        Circle()
-                            .fill(accent)
-                            .frame(width: 12, height: 12)
-                        Circle()
-                            .fill(accent)
-                            .frame(width: 12, height: 12)
-                    }
-                }
-            }
 
             Text(title)
-                .font(.system(size: 18, weight: .black, design: .rounded))
-                .foregroundStyle(Palette.ink)
-                .multilineTextAlignment(.center)
-            Text(subtitle.uppercased())
-                .font(.system(.caption2, design: .rounded, weight: .black))
-                .foregroundStyle(Palette.blue)
+                .font(.system(.caption, design: .rounded, weight: .semibold))
+                .foregroundStyle(Palette.ink.opacity(0.58))
+                .offset(y: 84)
         }
-        .padding(12)
     }
 
     private func bundleView(title: String, brand: TechBrand) -> some View {
@@ -2082,38 +2341,207 @@ struct SwagArtView: View {
                 .font(.system(size: 18, weight: .black, design: .rounded))
                 .foregroundStyle(Palette.ink)
                 .multilineTextAlignment(.center)
-            Text(brand.wordmark)
-                .font(.system(.caption2, design: .rounded, weight: .black))
-                .foregroundStyle(Palette.blue)
+            BrandLogoView(brand: brand, lightBackground: true, maxWidth: 72, maxHeight: 18)
         }
         .padding(12)
     }
 
     private func jurassicView() -> some View {
-        VStack(spacing: 10) {
-            ZStack {
-                Circle()
-                    .fill(Palette.orange)
-                    .frame(width: 84, height: 84)
-                    .overlay(Circle().stroke(Palette.ink, lineWidth: 3))
-                Image(systemName: "tshirt.fill")
-                    .font(.system(size: 44, weight: .bold))
-                    .foregroundStyle(Palette.ink)
-                Text("2012")
-                    .font(.system(.caption2, design: .rounded, weight: .black))
-                    .foregroundStyle(Palette.paper)
-                    .offset(y: 26)
-            }
+        teeMockupView(baseColor: Color(red: 0.13, green: 0.13, blue: 0.16), title: "NETFLIX", subtitle: "jurassic tee", brand: .netflix, highlight: Palette.orange)
+    }
 
-            Text("NETFLIX\nJURASSIC STACK")
-                .font(.system(size: 18, weight: .black, design: .rounded))
-                .multilineTextAlignment(.center)
-                .foregroundStyle(Palette.ink)
-            Text("hackathon tee")
-                .font(.system(.caption2, design: .rounded, weight: .black))
-                .foregroundStyle(Palette.blue)
+    private func teeMockupView(baseColor: Color, title: String, subtitle: String, brand: TechBrand, highlight: Color) -> some View {
+        ZStack {
+            Capsule()
+                .fill(Color.black.opacity(0.06))
+                .frame(width: 116, height: 18)
+                .offset(y: 74)
+
+            ZStack {
+                Image(systemName: "tshirt.fill")
+                    .font(.system(size: 128, weight: .bold))
+                    .foregroundStyle(baseColor)
+
+                VStack(spacing: 8) {
+                    if brand == .swagSwap {
+                        SwagSwapLogoMark(size: 42)
+                        Text("SwagSwap")
+                            .font(.system(.title3, design: .rounded, weight: .bold))
+                            .foregroundStyle(highlight)
+                    } else {
+                        RoundedRectangle(cornerRadius: 10, style: .continuous)
+                            .fill(Color.white.opacity(0.94))
+                            .frame(width: 68, height: 28)
+                            .overlay(
+                                BrandLogoView(brand: brand, lightBackground: true, maxWidth: 56, maxHeight: 18)
+                            )
+                        Text(subtitle)
+                            .font(.system(.caption, design: .rounded, weight: .semibold))
+                            .foregroundStyle(highlight.opacity(0.82))
+                    }
+                }
+                .offset(y: 10)
+            }
         }
-        .padding(12)
+    }
+
+    private func hoodieMockupView(baseColor: Color, title: String, subtitle: String, brand: TechBrand) -> some View {
+        ZStack {
+            Capsule()
+                .fill(Color.black.opacity(0.06))
+                .frame(width: 116, height: 18)
+                .offset(y: 74)
+
+            ZStack {
+                Image(systemName: "hoodie.fill")
+                    .font(.system(size: 136, weight: .bold))
+                    .foregroundStyle(baseColor)
+                    .shadow(color: Palette.shadow, radius: 10, x: 0, y: 8)
+
+                VStack(spacing: 8) {
+                    if brand == .swagSwap {
+                        SwagSwapLogoMark(size: 42)
+                        Text("SwagSwap")
+                            .font(.system(.title3, design: .rounded, weight: .bold))
+                            .foregroundStyle(Palette.ink)
+                    } else {
+                        RoundedRectangle(cornerRadius: 10, style: .continuous)
+                            .fill(Palette.surface.opacity(0.94))
+                            .frame(width: 70, height: 30)
+                            .overlay(
+                                BrandLogoView(brand: brand, lightBackground: true, maxWidth: 58, maxHeight: 18)
+                            )
+                        Text(subtitle)
+                            .font(.system(.caption, design: .rounded, weight: .semibold))
+                            .foregroundStyle(Palette.ink.opacity(0.62))
+                    }
+                }
+                .offset(y: 6)
+            }
+        }
+    }
+
+    private func vestMockupView(baseColor: Color, title: String, subtitle: String, brand: TechBrand) -> some View {
+        ZStack {
+            Capsule()
+                .fill(Color.black.opacity(0.06))
+                .frame(width: 112, height: 18)
+                .offset(y: 76)
+
+            RoundedRectangle(cornerRadius: 24, style: .continuous)
+                .fill(baseColor)
+                .frame(width: 104, height: 138)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 24, style: .continuous)
+                        .stroke(Palette.line, lineWidth: 1)
+                )
+                .overlay(
+                    VStack {
+                        HStack {
+                            Circle().fill(Color.white.opacity(0.2)).frame(width: 18, height: 18)
+                            Spacer()
+                            Circle().fill(Color.white.opacity(0.2)).frame(width: 18, height: 18)
+                        }
+                        Spacer()
+                        HStack {
+                            Capsule().fill(Color.white.opacity(0.15)).frame(width: 16, height: 38)
+                            Spacer()
+                            Capsule().fill(Color.white.opacity(0.15)).frame(width: 16, height: 38)
+                        }
+                    }
+                    .padding(12)
+                )
+                .shadow(color: Palette.shadow, radius: 12, x: 0, y: 8)
+                .overlay(
+                    VStack(alignment: .leading, spacing: 4) {
+                        if brand == .swagSwap {
+                            SwagSwapLogoMark(size: 28)
+                            Text("SwagSwap")
+                                .font(.system(.caption, design: .rounded, weight: .bold))
+                                .foregroundStyle(Palette.ink)
+                        } else {
+                            BrandLogoView(brand: brand, lightBackground: true, maxWidth: 54, maxHeight: 16)
+                            Text(subtitle)
+                                .font(.system(size: 11, weight: .semibold, design: .rounded))
+                                .foregroundStyle(Palette.ink.opacity(0.62))
+                        }
+                    }
+                    .frame(maxWidth: 78, alignment: .leading)
+                    .offset(x: 24, y: -10)
+                )
+        }
+    }
+
+    private func truckerHatView(baseColor: Color, frontColor: Color, brand: TechBrand, subtitle: String) -> some View {
+        ZStack {
+            Capsule()
+                .fill(Color.black.opacity(0.06))
+                .frame(width: 110, height: 18)
+                .offset(y: 66)
+
+            VStack(spacing: 8) {
+                ZStack {
+                    Capsule(style: .continuous)
+                        .fill(baseColor)
+                        .frame(width: 110, height: 52)
+                        .overlay(
+                            Capsule(style: .continuous)
+                                .stroke(Palette.line, lineWidth: 1)
+                        )
+                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                        .fill(frontColor)
+                        .frame(width: 64, height: 50)
+                        .offset(x: -8, y: -2)
+                        .overlay(
+                            BrandLogoView(brand: brand, lightBackground: true, maxWidth: 46, maxHeight: 18)
+                                .offset(x: -8, y: -2)
+                        )
+                }
+
+                Text(subtitle)
+                    .font(.system(.caption, design: .rounded, weight: .semibold))
+                    .foregroundStyle(Palette.ink.opacity(0.64))
+            }
+        }
+    }
+
+    private func stickerPiece(size: CGFloat, circular: Bool) -> some View {
+        Group {
+            if circular {
+                Circle()
+                    .fill(LinearGradient(colors: [Color(red: 0.13, green: 0.17, blue: 0.31), Palette.blue], startPoint: .topLeading, endPoint: .bottomTrailing))
+                    .overlay(SwagSwapLogoMark(size: size * 0.52))
+            } else {
+                RoundedRectangle(cornerRadius: 14, style: .continuous)
+                    .fill(Color.white)
+                    .overlay(SwagSwapLogoMark(size: size * 0.56))
+            }
+        }
+        .frame(width: size, height: size)
+        .overlay(
+            RoundedRectangle(cornerRadius: circular ? size / 2 : 14, style: .continuous)
+                .stroke(Palette.line, lineWidth: 1)
+        )
+    }
+
+    private func hoodieSticker(size: CGFloat) -> some View {
+        RoundedRectangle(cornerRadius: 14, style: .continuous)
+            .fill(Color(red: 0.12, green: 0.2, blue: 0.42))
+            .frame(width: size, height: size)
+            .overlay(
+                VStack(spacing: 4) {
+                    Image(systemName: "hoodie.fill")
+                        .font(.system(size: size * 0.36, weight: .bold))
+                        .foregroundStyle(Palette.surface)
+                    Text("SwagSwap")
+                        .font(.system(size: size * 0.14, weight: .bold, design: .rounded))
+                        .foregroundStyle(Palette.surface)
+                }
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 14, style: .continuous)
+                    .stroke(Palette.line, lineWidth: 1)
+            )
     }
 }
 
@@ -2408,6 +2836,136 @@ struct BottomTabBar: View {
             )
         }
         .buttonStyle(.plain)
+    }
+}
+
+enum BrandAssetStore {
+    static func image(for brand: TechBrand) -> UIImage? {
+        guard let assetName = brand.assetName else { return nil }
+        if let image = UIImage(named: assetName) {
+            return image
+        }
+        guard let url = Bundle.main.url(forResource: assetName, withExtension: "png"),
+              let image = UIImage(contentsOfFile: url.path) else {
+            return nil
+        }
+        return image
+    }
+}
+
+struct BrandLogoView: View {
+    let brand: TechBrand
+    var lightBackground = false
+    var maxWidth: CGFloat = 88
+    var maxHeight: CGFloat = 24
+
+    var body: some View {
+        if let image = BrandAssetStore.image(for: brand) {
+            Image(uiImage: image)
+                .resizable()
+                .interpolation(.high)
+                .antialiased(true)
+                .scaledToFit()
+                .frame(maxWidth: maxWidth, maxHeight: maxHeight)
+                .padding(.horizontal, lightBackground ? 6 : 0)
+                .padding(.vertical, lightBackground ? 4 : 0)
+        } else {
+            Text(brand.wordmark)
+                .font(.system(.caption, design: .rounded, weight: .bold))
+                .foregroundStyle(Palette.ink)
+        }
+    }
+}
+
+struct SwagSwapLogoMark: View {
+    var size: CGFloat = 40
+
+    var body: some View {
+        ZStack {
+            Circle()
+                .fill(Palette.blue.opacity(0.14))
+                .frame(width: size, height: size)
+
+            Image(systemName: "arrow.right")
+                .font(.system(size: size * 0.4, weight: .black))
+                .foregroundStyle(Palette.blue)
+                .offset(x: size * 0.16, y: -size * 0.16)
+
+            Image(systemName: "arrow.left")
+                .font(.system(size: size * 0.4, weight: .black))
+                .foregroundStyle(Palette.orange)
+                .offset(x: -size * 0.16, y: size * 0.16)
+
+            Text("S")
+                .font(.system(size: size * 0.72, weight: .black, design: .rounded))
+                .foregroundStyle(
+                    LinearGradient(colors: [Palette.blue, Palette.orange], startPoint: .topLeading, endPoint: .bottomTrailing)
+                )
+        }
+    }
+}
+
+struct SwagSwapLogoLockup: View {
+    var body: some View {
+        HStack(spacing: 10) {
+            SwagSwapLogoMark(size: 38)
+            VStack(alignment: .leading, spacing: 1) {
+                Text("SwagSwap")
+                    .font(.system(.headline, design: .rounded, weight: .bold))
+                    .foregroundStyle(Palette.ink)
+                Text("trade up your extras")
+                    .font(.system(.caption2, design: .rounded, weight: .semibold))
+                    .foregroundStyle(Palette.blue)
+            }
+        }
+    }
+}
+
+struct SwagSwapAppThumbnail: View {
+    var cornerRadius: CGFloat = 30
+    var showGlow: Bool = true
+
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+                .fill(
+                    LinearGradient(
+                        colors: [Color(red: 0.11, green: 0.17, blue: 0.31), Color(red: 0.16, green: 0.27, blue: 0.52), Color(red: 0.09, green: 0.12, blue: 0.2)],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                )
+
+            RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+                .stroke(Palette.line, lineWidth: 1)
+
+            if showGlow {
+                Circle()
+                    .fill(Palette.blue.opacity(0.28))
+                    .blur(radius: 20)
+                    .offset(x: -18, y: -18)
+
+                Circle()
+                    .fill(Palette.orange.opacity(0.22))
+                    .blur(radius: 20)
+                    .offset(x: 14, y: 18)
+            }
+
+            SwagSwapLogoMark(size: 72)
+        }
+        .shadow(color: Palette.blue.opacity(0.15), radius: 18, x: 0, y: 10)
+    }
+}
+
+struct SwagSwapThumbnailBadge: View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            SwagSwapAppThumbnail(cornerRadius: 22)
+                .frame(width: 72, height: 72)
+            Text("App icon")
+                .font(.system(.caption2, design: .rounded, weight: .bold))
+                .foregroundStyle(Palette.blue)
+        }
     }
 }
 
