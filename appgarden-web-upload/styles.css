@@ -411,42 +411,56 @@ p {
     linear-gradient(160deg, #fffefa, #ffe6f0 48%, #fff3d6);
 }
 
-.mini-origami,
-.mini-necklace,
-.mini-bracelet {
+.mini-product {
   position: absolute;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  filter: drop-shadow(0 10px 14px rgba(88, 43, 66, 0.14));
 }
 
-.mini-origami {
-  width: 160px;
-  height: 120px;
-  left: 26px;
-  top: 34px;
-  background: linear-gradient(145deg, #ffb66e, #f067a6);
-  clip-path: polygon(0 70%, 28% 46%, 42% 9%, 56% 39%, 100% 12%, 76% 54%, 92% 98%, 54% 76%, 32% 92%, 26% 66%);
+.mini-paper-star {
+  width: 118px;
+  height: 118px;
+  left: 18px;
+  top: 20px;
+  transform: rotate(-8deg);
+  background-image: url("./paper-star.svg");
+}
+
+.mini-paper-box {
+  width: 112px;
+  height: 112px;
+  left: 128px;
+  top: 18px;
+  transform: rotate(7deg);
+  background-image: url("./paper-gift-box.svg");
+}
+
+.mini-paper-lily {
+  width: 118px;
+  height: 118px;
+  left: 66px;
+  top: 118px;
+  transform: rotate(-3deg);
+  background-image: url("./paper-lily.svg");
 }
 
 .mini-necklace {
-  width: 150px;
-  height: 150px;
-  right: 26px;
-  top: 36px;
-  border: 14px dotted rgba(244, 200, 75, 0.9);
-  border-radius: 50%;
+  width: 136px;
+  height: 136px;
+  right: 18px;
+  top: 24px;
+  background-image: url("./necklace.svg");
 }
 
 .mini-bracelet {
-  width: 220px;
-  height: 28px;
-  left: 44px;
-  bottom: 46px;
-  background:
-    radial-gradient(circle, #f067a6 0 9px, transparent 10px),
-    radial-gradient(circle, #78c7f2 0 9px, transparent 10px),
-    radial-gradient(circle, #80d7a5 0 9px, transparent 10px),
-    radial-gradient(circle, #f4c84b 0 9px, transparent 10px);
-  background-size: 56px 24px;
-  background-position: 0 0, 14px 4px, 28px 0, 42px 4px;
+  width: 192px;
+  height: 72px;
+  right: 30px;
+  bottom: 24px;
+  transform: rotate(-2deg);
+  background-image: url("./friendship-bracelet.svg");
 }
 
 .category-strip {
