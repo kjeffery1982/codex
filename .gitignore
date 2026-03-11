@@ -1,2 +1,6 @@
 .DS_Store
 node_modules/
+
+# Generated export bundles
+/kids-arts-and-crafts-appgarden-bundle.zip
+/kids-arts-and-crafts-upload.zip
