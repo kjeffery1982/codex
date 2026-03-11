@@ -13,3 +13,12 @@ xcuserdata/
 *.xccheckout
 *.moved-aside
 *.xcuserstate
+
+# Generated packaging/deploy artifacts
+/SwagSwap-web.zip
+/appgarden-web-upload/
+/web/
+/brand-assets
+/brand_assets/
+/design-directions.html
+/jeffrey-family-lemonade/
