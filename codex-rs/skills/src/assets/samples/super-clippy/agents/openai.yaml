@@ -1,4 +1,6 @@
 interface:
   display_name: "Super Clippy"
   short_description: "Write stronger Codex prompts for better outcomes"
+  icon_small: "./assets/super-clippy-small.png"
+  icon_large: "./assets/super-clippy-large.png"
   default_prompt: "Use $super-clippy to rewrite my request into a high-signal Codex prompt with scope, constraints, and acceptance checks."
