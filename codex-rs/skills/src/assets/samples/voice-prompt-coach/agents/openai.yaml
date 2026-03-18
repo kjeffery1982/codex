@@ -1,0 +1,4 @@
+interface:
+  display_name: "Voice Prompt Coach"
+  short_description: "Turn short voice prompts into better Codex requests"
+  default_prompt: "Use $voice-prompt-coach to interpret my spoken request, improve it with $super-clippy, and gate risky work with $super-clippy-reviewer."

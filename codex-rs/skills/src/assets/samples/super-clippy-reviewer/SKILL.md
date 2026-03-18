@@ -1,6 +1,6 @@
 ---
 name: super-clippy-reviewer
-description: Evaluate prompt quality before execution and enforce a clear FIX_PROMPT or RUN_ANYWAY decision. Use when a user wants stronger reliability, lower rework risk, or governance for costly, high-risk, or ambiguous coding tasks.
+description: Evaluate prompt quality before execution and enforce a clear FIX_PROMPT or RUN_ANYWAY decision for risky work. Use when a prompt targets high-impact or high-risk coding tasks such as migrations, security-sensitive changes, data-critical flows, or broad refactors where a bad prompt could cause costly rework.
 ---
 
 # Super Clippy Reviewer

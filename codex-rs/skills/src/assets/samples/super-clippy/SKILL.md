@@ -1,6 +1,6 @@
 ---
 name: super-clippy
-description: Rewrite vague coding requests into high-signal Codex prompts that improve execution quality, speed, and reliability. Use when a user asks for better prompts, stronger agent instructions, improved outcomes in refactors or migrations, or when tasks fail due to unclear scope, missing constraints, or weak acceptance criteria.
+description: Strengthen already-usable prompts into high-signal Codex prompts with better scope, constraints, acceptance criteria, and verification. Use when a prompt is understandable but loose, when a user asks for better prompts or stronger agent instructions, or when Prompt Ninja decides the request is usable and should be tightened rather than clarified.
 ---
 
 # Super Clippy

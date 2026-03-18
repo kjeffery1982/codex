@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prompt Ninja"
+  short_description: "Classify and improve prompts before Codex runs"
+  default_prompt: "Use $prompt-ninja to classify my prompt as Rewrite, Clarify, Hand off, or Ready, then improve it or route it appropriately."
